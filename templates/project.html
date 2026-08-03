@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Bike Prediction Form{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <h1>Used bike price estimator</h1>
+        <p>Drop in engine-related details and instantly see the predicted market price based on the trained model.</p>
+    </div>
+    <div class="hero-visual"></div>
+</section>
+
+<section class="grid-3">
+    <article class="form-card" style="grid-column: span 2;">
+        <h3>Enter Bike Details</h3>
+        <form action="{{ url_for('project') }}" method="post">
+            <div class="form-grid">
+                <div>
+                    <label class="label" for="brand_name">Brand</label>
+                    <select name="brand_name" id="brand_name" required>
+                        <option value="Royal Enfield">Royal Enfield</option>
+                        <option value="KTM">KTM</option>
+                        <option value="Bajaj">Bajaj</option>
+                        <option value="Harley-Davidson">Harley-Davidson</option>
+                        <option value="Yamaha">Yamaha</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="TVS">TVS</option>
+                        <option value="Kawasaki">Kawasaki</option>
+                        <option value="Hyosung">Hyosung</option>
+                        <option value="Benelli">Benelli</option>
+                        <option value="Mahindra">Mahindra</option>
+                        <option value="Triumph">Triumph</option>
+                        <option value="Ducati">Ducati</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Rajdoot">Rajdoot</option>
+                        <option value="Indian">Indian</option>
+                        <option value="LML">LML</option>
+                        <option value="Yezdi">Yezdi</option>
+                        <option value="MV">MV</option>
+                        <option value="Ideal">Ideal</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="label" for="owner">Owner</label>
+                    <select name="owner" id="owner" required>
+                        <option value="1">First Owner</option>
+                        <option value="2">Second Owner</option>
+                        <option value="3">Third Owner</option>
+                        <option value="4">Fourth Owner</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="label" for="age">Age</label>
+                    <input type="number" name="age" id="age" required>
+                </div>
+
+                <div>
+                    <label class="label" for="power">Power</label>
+                    <input type="number" name="power" id="power" required>
+                </div>
+
+                <div>
+                    <label class="label" for="kms_driven">Kilometers Driven</label>
+                    <input type="number" name="kms_driven" id="kms_driven" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn predict-btn">Predict Price</button>
+        </form>
+
+        {% if prediction is not none %}
+        <div class="result-box">
+            <h3>Predicted Bike Price</h3>
+            <div class="typewriter">₹ {{ prediction }}</div>
+        </div>
+        {% endif %}
+    </article>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Bike Price Prediction Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <h1>Smart bike pricing for used motorcycles.</h1>
+        <p>Estimate the market value of your bike using a machine learning-backed prediction flow. Explore model details, compare themes, and get fast pricing insights.</p>
+        <div class="hero-actions">
+            <a class="btn" href="{{ url_for('project') }}">Predict Now</a>
+            <a class="btn secondary" href="{{ url_for('about') }}">Learn More</a>
+        </div>
+    </div>
+    <div class="hero-visual"></div>
+</section>
+
+<section class="grid-3">
+    <article class="stat-card">
+        <h3>Prediction Engine</h3>
+        <p>Uses real bike parameters such as brand, age, power, owner history, and kilometers driven to estimate pricing.</p>
+    </article>
+    <article class="stat-card">
+        <h3>Modern UI</h3>
+        <p>Designed with a polished dark/light mode, soft glassmorphism panels, and a clean premium dashboard look.</p>
+    </article>
+    <article class="stat-card">
+        <h3>Project Fit</h3>
+        <p>Perfect for a data science portfolio, machine-learning demo, and responsive web application presentation.</p>
+    </article>
+</section>
+{% endblock %}
